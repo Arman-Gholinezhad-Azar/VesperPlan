@@ -2,7 +2,7 @@ import re
 from dataclasses import dataclass
 
 
-_TASK_TITLE_PATTERN = re.compile(r"^[a-zA-Z0-9_.- ]+$")
+_TASK_TITLE_PATTERN = re.compile(r"^[a-zA-Z0-9_.\- ]+$")
 
 @dataclass(frozen=True)
 class TaskTitle:
@@ -20,8 +20,8 @@ class TaskTitle:
         if not formatted:
             raise ValueError("Task name should not be empty.")
 
-        if length > 15:
-            raise ValueError("Task name should not be more than 15 characters.")
+        if length > 30:
+            raise ValueError("Task name should not be more than 30 characters.")
 
         if not re.search(_TASK_TITLE_PATTERN, formatted):
             raise ValueError("Task name cannot use special characters like ($%^& etc). allowed special characters are: (_ . -)")
