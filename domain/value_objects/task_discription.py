@@ -14,7 +14,7 @@ class TaskDiscription:
         formatted = self._value.strip()
         length = len(formatted)
 
-        if length > 200:
+        if length > 500:
             raise ValueError("Discripion is too long.")
         
         object.__setattr__(self, "_value", formatted)
